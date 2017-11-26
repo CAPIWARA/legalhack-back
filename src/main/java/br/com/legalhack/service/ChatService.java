@@ -46,16 +46,33 @@ public class ChatService {
         }
         if (chat.getQuestion().contains(CHAT_NOME)) {
             chat.getState().setNome(chat.getAnswer());
-            return chat.getAnswer().concat(CHAT_CONSCIENTIZAR).replace("\n", "");
-        }
-        if (chat.getAnswer().toLowerCase().contains(USR_OK)) {
-            return CHAT_FILHOS;
+            return chat.getAnswer().concat(CHAT_FILHOS).replace("\n", "");
         }
         if (chat.getAnswer().toLowerCase().contains(USR_TENHO)) {
-            return CHAT_CEP;
+            return CHAT_CONJUGUE;
         }
         if (validarCep(chat.getAnswer())) {
             return CHAT_ACEITACAO;
+        }
+
+        if (chat.getAnswer().toLowerCase().contains(USR_NAOQUE)) {
+            return CHAT_MEDIACAO;
+        }
+
+        if (chat.getAnswer().toLowerCase().contains(USR_NAOCONHECO)) {
+            return CHAT_LEI;
+        }
+
+        if (chat.getAnswer().toLowerCase().contains(USR_ENTENDI)) {
+            return CHAT_DISPOSTO;
+        }
+
+        if (chat.getAnswer().toLowerCase().contains(USR_PREFIRO)) {
+            return CHAT_ACAO;
+        }
+
+        if (chat.getAnswer().toLowerCase().contains(USR_TENTATIVA)) {
+            return CHAT_FINALIZA;
         }
 
 
